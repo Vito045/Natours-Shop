@@ -73,18 +73,6 @@ app.use(compression());
 //   next();
 // });
 
-process.on('unhandledRejection', err => {
-  console.log('UNHANDLER REJECTION! Shutting down...');
-  console.log(err.name, err.message);
-  process.exit(1);
-});
-
-process.on('uncaughtException', err => {
-  console.log('UNCAUGHT EXCEPTION');
-  console.log(err.name, err.message);
-  process.exit(1);
-});
-
 // 2. Routes
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
